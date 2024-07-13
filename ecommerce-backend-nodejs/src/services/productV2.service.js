@@ -8,6 +8,7 @@ const {
 }= require('../models/repositories/product.repo')
 const { updateNestedObjectParse,removeUndefinedObject } = require('../utils')
 const { insertInventory } = require('../models/repositories/inventory.repo')
+const { pushNotiToSystem } = require('./notification.service')
 
 
 class ProductFactoryV2{
@@ -83,6 +84,19 @@ class Product{
                 stock:this.product_quantity
             })
         }
+
+        //pushnoti
+
+        pushNotiToSystem({
+            type:'SHOP-001',
+            recievedId:1,
+            senderId:this.shop,
+            option:{
+                product_name:this.product_name,
+                shop_name:this.product_shop
+            }
+        }).then(rs => console.log(rs))
+        .catch(console.error)
 
     }
 

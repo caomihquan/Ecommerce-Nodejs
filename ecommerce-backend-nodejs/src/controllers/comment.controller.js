@@ -13,9 +13,17 @@ class CommentController{
 
     getCommentsByParentId = async(req,res,next) =>{
         new SuccessResponse({
-            message:'create new comment',
+            message:'getCommentsByParentId',
             metatdata:await getCommentsByParentId(req.query)
         }).send(res)
     }
+
+    deleteComment = async(req,res,next) =>{
+        new SuccessResponse({
+            message:'deleteComment',
+            metatdata:await this.deleteComment(req.body)
+        }).send(res)
+    }
+
 }
 module.exports = new CommentController();

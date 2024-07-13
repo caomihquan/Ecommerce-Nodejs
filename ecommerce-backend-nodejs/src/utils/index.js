@@ -44,6 +44,7 @@ const updateNestedObjectParse = (obj, parentKey = '', updateObj = {}) => {
 module.exports = {
     getInfoData,
     getSelectData,
+    getUnSelectData,
     updateNestedObjectParse,
     removeUndefinedObject,
     convertToObjectIdMongodb
